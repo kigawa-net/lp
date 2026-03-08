@@ -14,11 +14,28 @@
   --color-base: #f0f7f9;
   --color-ink: #0d2030;
 
-  --shadow-glass: 0 10px 50px rgba(0, 188, 212, 0.07), inset 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 html,
 body {
   background-color: var(--color-base);
   color: var(--color-ink);
+}
+
+@utility glass-panel {
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@utility glass-primary {
+  background: rgba(136, 204, 0, 0.04);
+  border: 1px solid rgba(136, 204, 0, 0.2);
+}
+
+@utility glass-secondary {
+  background: rgba(0, 188, 212, 0.04);
+  border: 1px solid rgba(0, 188, 212, 0.2);
 }

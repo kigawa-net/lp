@@ -15,22 +15,19 @@ const missions = [
   {
     key: "融合 (Fusion)",
     value: "境界のない接続",
-    description:
-      "既存のインフラ、デバイス、データをネットワークの力で一つのシステムへ統合。",
+    description: "既存のインフラ、デバイス、データをネットワークの力で一つのシステムへ統合。",
     accent: "primary" as const,
   },
   {
     key: "堅牢 (Robust)",
     value: "揺るぎない信頼",
-    description:
-      "融合された巨大なシステムを、IaCとKubernetesで安全かつ確実に維持。",
+    description: "融合された巨大なシステムを、IaCとKubernetesで安全かつ確実に維持。",
     accent: "secondary" as const,
   },
   {
     key: "機能 (Function)",
     value: "最小の摩擦",
-    description:
-      "複雑な接続をシンプルに整理し、一切の無駄を削ぎ落とした高効率な動作。",
+    description: "複雑な接続をシンプルに整理し、一切の無駄を削ぎ落とした高効率な動作。",
     accent: "primary" as const,
   },
 ];
@@ -39,23 +36,20 @@ const projects = [
   {
     name: "portfolio",
     tag: "portfolio",
-    description:
-      "kigawaのポートフォリオサイト。",
+    description: "kigawaのポートフォリオサイト。",
     accent: "primary" as const,
     href: "https://portfolio.kigawa.net",
   },
 ];
 
+function glassClass(accent: "primary" | "secondary") {
+  return accent === "primary"
+    ? "glass-panel glass-primary"
+    : "glass-panel glass-secondary";
+}
+
 function accentText(accent: "primary" | "secondary") {
   return accent === "primary" ? "text-primary" : "text-secondary";
-}
-
-function accentBorderTop(accent: "primary" | "secondary") {
-  return accent === "primary" ? "border-t-primary" : "border-t-secondary";
-}
-
-function accentBorderBottom(accent: "primary" | "secondary") {
-  return accent === "primary" ? "border-b-primary" : "border-b-secondary";
 }
 
 export default function Home() {
@@ -65,8 +59,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        <div
-          className="bg-white/60 backdrop-blur-xl backdrop-saturate-160 border border-white/50 shadow-glass rounded-3xl px-10 py-14 max-w-3xl w-full">
+        <div className="glass-panel glass-primary rounded-3xl px-10 py-14 max-w-3xl w-full">
           <p className="text-primary text-sm tracking-[0.3em] uppercase mb-6 font-medium">
             kigawa.net
           </p>
@@ -106,17 +99,12 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {missions.map((m) => (
-              <div
-                key={m.key}
-                className={`bg-white/60 backdrop-blur-xl backdrop-saturate-160 border border-white/50 shadow-glass rounded-2xl p-8 border-t-2 ${accentBorderTop(m.accent)}`}
-              >
+              <div key={m.key} className={`${glassClass(m.accent)} rounded-2xl p-8`}>
                 <p className={`${accentText(m.accent)} font-bold text-sm tracking-wider mb-3`}>
                   {m.key}
                 </p>
                 <p className="text-ink font-semibold text-lg mb-3">{m.value}</p>
-                <p className="text-ink/55 text-sm leading-relaxed">
-                  {m.description}
-                </p>
+                <p className="text-ink/55 text-sm leading-relaxed">{m.description}</p>
               </div>
             ))}
           </div>
@@ -137,17 +125,11 @@ export default function Home() {
             {projects.map((p) => (
               <div
                 key={p.name}
-                className={`bg-white/60 backdrop-blur-xl backdrop-saturate-160 border border-white/50 shadow-glass rounded-2xl p-8 border-b-2 ${accentBorderBottom(p.accent)} hover:shadow-lg transition-shadow duration-300`}
+                className={`${glassClass(p.accent)} rounded-2xl p-8 hover:brightness-105 transition-[filter] duration-300`}
               >
-                <p className="text-ink/35 text-xs tracking-widest mb-3">
-                  {p.tag}
-                </p>
-                <p className={`${accentText(p.accent)} font-black text-2xl mb-4`}>
-                  {p.name}
-                </p>
-                <p className="text-ink/55 text-sm leading-relaxed">
-                  {p.description}
-                </p>
+                <p className="text-ink/35 text-xs tracking-widest mb-3">{p.tag}</p>
+                <p className={`${accentText(p.accent)} font-black text-2xl mb-4`}>{p.name}</p>
+                <p className="text-ink/55 text-sm leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
