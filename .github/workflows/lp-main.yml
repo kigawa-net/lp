@@ -1,0 +1,24 @@
+name: lp-main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+  ktse:
+    needs:
+      - ci
+    uses: ./.github/workflows/release.yml
+    secrets:
+      HARBOR_PASS: ${{ secrets.HARBOR_PASS }}
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+    with:
+      name: portfolio
+      harborProject: "private"
+      harborUser: "robot$kigawa-net"
+      dockerFile: './Dockerfile'
+      context: './'
+      manifestFile: "./lp/main/lp.yml"
+      repository: "kigawa-net/kigawa-net-k8s"
