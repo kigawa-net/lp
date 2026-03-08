@@ -81,6 +81,10 @@ jobs:
       # Compression helps performance in the upload step!
       - name: Compress renovate cache
         run: |
+          if [ ! -d "$cache_dir" ]; then
+            echo "Cache directory not found, skipping compression."
+            exit 0
+          fi
           ls $cache_dir
           # The -C is important -- otherwise we end up extracting the files with
           # their full path, ultimately leading to a nested directory situation.
