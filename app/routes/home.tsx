@@ -123,14 +123,17 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {projects.map((p) => (
-              <div
+              <a
                 key={p.name}
-                className={`${glassClass(p.accent)} rounded-2xl p-8 hover:brightness-105 transition-[filter] duration-300`}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${glassClass(p.accent)} rounded-2xl p-8 hover:brightness-105 transition-[filter] duration-300 block cursor-pointer`}
               >
                 <p className="text-ink/35 text-xs tracking-widest mb-3">{p.tag}</p>
                 <p className={`${accentText(p.accent)} font-black text-2xl mb-4`}>{p.name}</p>
                 <p className="text-ink/55 text-sm leading-relaxed">{p.description}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
