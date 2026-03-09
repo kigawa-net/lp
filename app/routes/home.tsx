@@ -139,6 +139,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact */}
+      <section className="relative z-10 px-6 py-24">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-secondary text-xs tracking-[0.4em] uppercase mb-4">Contact</p>
+            <h2 className="text-3xl md:text-4xl font-bold">連絡先</h2>
+          </div>
+
+          <div className="glass-panel glass-secondary rounded-2xl p-10 flex flex-col gap-6">
+            <a
+              href="mailto:contact@kigawa.net"
+              className="flex items-center gap-4 text-ink/70 hover:text-secondary transition-colors duration-200"
+            >
+              <span className="text-secondary font-bold w-20 shrink-0">Email</span>
+              <span>contact@kigawa.net</span>
+            </a>
+            <hr className="border-white/20" />
+            <a
+              href="https://x.com/kigawa20"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 text-ink/70 hover:text-secondary transition-colors duration-200"
+            >
+              <span className="text-secondary font-bold w-20 shrink-0">X</span>
+              <span>@kigawa20</span>
+            </a>
+            <hr className="border-white/20" />
+            <a
+              href="https://github.com/kigawa01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 text-ink/70 hover:text-secondary transition-colors duration-200"
+            >
+              <span className="text-secondary font-bold w-20 shrink-0">GitHub</span>
+              <span>kigawa01</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative z-10 text-center py-12 text-ink/30 text-sm tracking-wider">
         © 2025 kigawa.net
