@@ -80,6 +80,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services */}
+      <section className="relative z-10 px-6 py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase mb-4">Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold">できること</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="glass-panel glass-primary rounded-2xl p-8">
+              <p className="text-primary font-black text-2xl mb-4">LP制作</p>
+              <p className="text-ink/55 text-sm leading-relaxed">
+                ビジネスの魅力を伝えるランディングページを設計・制作。
+                訴求力の高いデザインと高速なパフォーマンスを両立します。
+              </p>
+            </div>
+            <div className="glass-panel glass-secondary rounded-2xl p-8">
+              <p className="text-secondary font-black text-2xl mb-4">Webシステム制作</p>
+              <p className="text-ink/55 text-sm leading-relaxed">
+                業務要件に合わせたWebアプリケーションをフルスタックで開発。
+                堅牢な設計と継続的な運用を一貫してサポートします。
+              </p>
+            </div>
+            <div className="glass-panel glass-primary rounded-2xl p-8">
+              <p className="text-primary font-black text-2xl mb-4">システムリプレイス</p>
+              <p className="text-ink/55 text-sm leading-relaxed">
+                レガシーシステムを最新技術へ移行。
+                ダウンタイムを最小化しながら、安全かつ段階的に刷新します。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission */}
       <section className="relative z-10 px-6 py-24">
         <div className="max-w-5xl mx-auto">
