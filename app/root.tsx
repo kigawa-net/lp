@@ -7,9 +7,18 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import type { Route } from "./+types/root";
+import type { Route } from "../.react-router/types/app/+types/root";
 import "./app.css";
 import React from "react";
+import { getSession } from "~/session/session.server";
+import type { UserInfo } from "~/session/session.server";
+import { AuthProvider } from "~/auth/auth";
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const session = await getSession(request);
+  const user = (session.get("user") as UserInfo | undefined) ?? null;
+  return { user };
+}
 
 // noinspection JSUnusedGlobalSymbols
 export const links: Route.LinksFunction = () => [
@@ -44,8 +53,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
+export default function App({ loaderData }: Route.ComponentProps) {
+  return (
+    <AuthProvider user={loaderData.user}>
+      <Outlet />
+    </AuthProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

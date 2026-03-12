@@ -1,5 +1,6 @@
 import type {Route} from "./+types/home";
-import {ParticleBackground} from "~/components/ParticleBackground";
+import {ParticleBackground} from "~/particle/ParticleBackground";
+import {useAuth} from "~/auth/auth";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -53,9 +54,34 @@ function accentText(accent: "primary" | "secondary") {
 }
 
 export default function Home() {
+  const {user} = useAuth();
   return (
     <div className="relative min-h-screen bg-base text-ink overflow-x-hidden">
       <ParticleBackground/>
+
+      {/* Auth header */}
+      <header className="fixed top-0 right-0 z-50 p-4">
+        {user ? (
+          <div className="flex items-center gap-3">
+            <span className="text-ink/60 text-sm">
+              {user.name ?? user.preferred_username ?? user.email}
+            </span>
+            <a
+              href="/auth/logout"
+              className="glass-panel glass-secondary rounded-full px-4 py-1.5 text-sm text-secondary hover:brightness-110 transition-[filter] duration-200"
+            >
+              ログアウト
+            </a>
+          </div>
+        ) : (
+          <a
+            href="/auth/login"
+            className="glass-panel glass-primary rounded-full px-4 py-1.5 text-sm text-primary hover:brightness-110 transition-[filter] duration-200"
+          >
+            ログイン
+          </a>
+        )}
+      </header>
 
       {/* Hero */}
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
@@ -189,7 +215,7 @@ export default function Home() {
               <span className="text-secondary font-bold w-20 shrink-0">Email</span>
               <span>contact@kigawa.net</span>
             </a>
-            <hr className="border-white/20" />
+            <hr className="border-white/20"/>
             <a
               href="https://x.com/kigawa20"
               target="_blank"
@@ -199,7 +225,7 @@ export default function Home() {
               <span className="text-secondary font-bold w-20 shrink-0">X</span>
               <span>@kigawa20</span>
             </a>
-            <hr className="border-white/20" />
+            <hr className="border-white/20"/>
             <a
               href="https://github.com/kigawa01"
               target="_blank"
