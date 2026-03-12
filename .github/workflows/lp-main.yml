@@ -22,3 +22,4 @@ jobs:
       context: './'
       manifestFile: "./lp/main/lp.yml"
       repository: "kigawa-net/kigawa-net-k8s"
+      yamlPath: 'select(documentIndex == 0).spec.template.spec.containers[0].image'
