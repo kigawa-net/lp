@@ -1,6 +1,11 @@
 import type {Route} from "./+types/home";
 import {ParticleBackground} from "~/particle/ParticleBackground";
 import {useAuth} from "~/auth/auth";
+import {getKeycloakAccountUrl} from "~/auth/auth.server";
+
+export function loader(_: Route.LoaderArgs) {
+  return {keycloakAccountUrl: getKeycloakAccountUrl()};
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -53,8 +58,9 @@ function accentText(accent: "primary" | "secondary") {
   return accent === "primary" ? "text-primary" : "text-secondary";
 }
 
-export default function Home() {
+export default function Home({loaderData}: Route.ComponentProps) {
   const {user} = useAuth();
+  const {keycloakAccountUrl} = loaderData;
   return (
     <div className="relative min-h-screen bg-base text-ink overflow-x-hidden">
       <ParticleBackground/>
@@ -66,6 +72,14 @@ export default function Home() {
             <span className="text-ink/60 text-sm">
               {user.name ?? user.preferred_username ?? user.email}
             </span>
+            <a
+              href={keycloakAccountUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-panel glass-primary rounded-full px-4 py-1.5 text-sm text-primary hover:brightness-110 transition-[filter] duration-200"
+            >
+              管理
+            </a>
             <a
               href="/auth/logout"
               className="glass-panel glass-secondary rounded-full px-4 py-1.5 text-sm text-secondary hover:brightness-110 transition-[filter] duration-200"

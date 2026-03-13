@@ -108,6 +108,11 @@ export function decodeIdToken(idToken: string): UserInfo {
   ) as UserInfo;
 }
 
+export function getKeycloakAccountUrl(): string {
+  const { url, realm } = getConfig();
+  return `${url}/realms/${realm}/account/`;
+}
+
 export async function getLogoutUrl(idTokenHint?: string): Promise<string> {
   const config = getConfig();
   const discovery = await discover();
