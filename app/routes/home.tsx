@@ -213,6 +213,32 @@ export default function Home({loaderData}: Route.ComponentProps) {
         </div>
       </section>
 
+      {/* Community */}
+      <section className="relative z-10 px-6 py-24">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase mb-4">Community</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Discordコミュニティ</h2>
+          </div>
+
+          <div className="glass-panel glass-primary rounded-2xl p-10 flex flex-col gap-6">
+            <p className="text-ink/70 text-sm leading-relaxed">
+              マイクラ・ITをメインとした雑多なコミュニティです。
+              低コストで雑に運営しているため、トラブル時など対応に時間がかかる場合があります。
+              私が運用しているサービスのサポートも行います。
+            </p>
+            <a
+              href="https://discord.gg/QrY9taHnqV"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-panel glass-primary rounded-full px-6 py-3 text-sm text-primary font-bold text-center hover:brightness-110 transition-[filter] duration-200 self-start"
+            >
+              Discordに参加する
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section className="relative z-10 px-6 py-24">
         <div className="max-w-3xl mx-auto">
