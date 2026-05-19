@@ -280,8 +280,11 @@ export default function Home({loaderData}: Route.ComponentProps) {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 text-center py-12 text-ink/30 text-sm tracking-wider">
-        © 2025 kigawa.net
+      <footer className="relative z-10 text-center py-12 text-ink/30 text-sm tracking-wider flex flex-col items-center gap-3">
+        <a href="/privacy" className="hover:text-ink/60 transition-colors duration-200">
+          プライバシーポリシー
+        </a>
+        <span>© 2026 kigawa.net</span>
       </footer>
     </div>
   );
