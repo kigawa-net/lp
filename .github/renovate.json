@@ -12,7 +12,7 @@
             "matchPackageNames": [
                 "com.android.tools.build:gradle"
             ],
-            "minimumReleaseAge": 365
+            "minimumReleaseAge": "365 days"
         }
     ]
 }
