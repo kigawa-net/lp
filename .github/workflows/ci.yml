@@ -4,12 +4,10 @@ on:
   workflow_call:
   push:
     branches:
-      - master
-      - develop
+      - main
   pull_request:
     branches:
-      - master
-      - develop
+      - main
 
 jobs:
   ci:
@@ -26,4 +24,6 @@ jobs:
         with:
           version: latest
       - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
       - run: pnpm build
