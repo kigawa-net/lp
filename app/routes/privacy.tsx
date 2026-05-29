@@ -8,6 +8,19 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+const coveredApps = [
+  {
+    name: "kigawa.net",
+    description: "ランディングページ・ポートフォリオサイト",
+    href: "https://kigawa.net",
+  },
+  {
+    name: "portfolio.kigawa.net",
+    description: "kigawaのポートフォリオサイト",
+    href: "https://portfolio.kigawa.net",
+  },
+];
+
 const sections = [
   {
     title: "収集する情報",
@@ -62,6 +75,27 @@ export default function Privacy(_: Route.ComponentProps) {
           <p className="text-primary text-xs tracking-[0.4em] uppercase mb-4">Privacy Policy</p>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">プライバシーポリシー</h1>
           <p className="text-ink/50 text-sm">最終更新日：2026年5月19日</p>
+        </div>
+
+        <div className="glass-panel glass-primary rounded-2xl p-8 mb-6">
+          <h2 className="text-primary font-bold text-lg mb-4">対象アプリ・サービス</h2>
+          <p className="text-ink/70 text-sm leading-relaxed mb-4">
+            本プライバシーポリシーは、以下のアプリ・サービスに適用されます。
+          </p>
+          <div className="flex flex-col gap-3">
+            {coveredApps.map((app) => (
+              <a
+                key={app.name}
+                href={app.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-ink/70 hover:text-primary transition-colors duration-200"
+              >
+                <span className="text-primary font-bold w-52 shrink-0">{app.name}</span>
+                <span className="text-sm">{app.description}</span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="flex flex-col gap-6">
