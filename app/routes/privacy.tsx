@@ -19,6 +19,11 @@ const coveredApps = [
     description: "kigawaのポートフォリオサイト",
     href: "https://portfolio.kigawa.net",
   },
+  {
+    name: "kigawa.net alpha",
+    description: "開発中のアプリケーション（フィードバック収集環境）",
+    href: "https://alpha.kigawa.net",
+  },
 ];
 
 const sections = [
